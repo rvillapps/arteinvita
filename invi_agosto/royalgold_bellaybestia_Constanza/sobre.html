@@ -296,8 +296,10 @@
         button.addEventListener('click', () => {
             envelope.classList.add('open'); // Agrega la clase para activar la animación
             setTimeout(() => {
-                window.location.href = 'invitacion.html'; // Redirige después de la animación
-            }, 1000); // Tiempo en milisegundos (coincide con la duración de la animación)
+                const params = new URLSearchParams(window.location.search);
+                const guestId = params.get('guestId');
+                window.location.href = 'invitacion.html' + (guestId ? '?guestId=' + guestId : '');
+            }, 1000);
         });
     </script>
 </body>
